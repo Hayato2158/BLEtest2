@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "BLE通信を受信しています",
         modifier = modifier
     )
 }
