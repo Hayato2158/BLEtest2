@@ -101,8 +101,6 @@ class GetBLE(private val context: Context) {
 
                                         //16→10進数変換
                                         val uv = Integer.parseInt(uv16, 16).toShort().toString()
-
-
                                         // 気圧(22~25)
                                         val presB = OutputData.substring(22, 24)
                                         val presF = OutputData.substring(24, 26)
