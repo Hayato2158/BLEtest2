@@ -12,12 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.bletest.ui.theme.BLEtestTheme
+import android.util.Log
+
 
 class MainActivity : ComponentActivity() {
-    var getBLE=GetBLE()
+    var getBLE = GetBLE(context = this)
+    lateinit var OtherFileStorage: OtherFileStorage
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("BLEtest", "onCreate")
         super.onCreate(savedInstanceState)
+
         getBLE.startScan()
+
         enableEdgeToEdge()
         setContent {
             BLEtestTheme {
@@ -31,7 +38,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 
 
 @Composable
