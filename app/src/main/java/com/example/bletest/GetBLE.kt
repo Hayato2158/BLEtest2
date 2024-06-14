@@ -66,10 +66,8 @@ class GetBLE(private val context: Context) {
                                         val tempB = OutputData.substring(6, 8)
                                         val tempF = OutputData.substring(8, 10)
                                         val temp16 = tempF + tempB
-
                                         //16→10進数変換
                                         val temp10 = Integer.parseInt(temp16, 16).toShort().toString()
-
                                         //小数点ぶち込む(/100)
                                         val temp = temp10.substring(0, 2) + "." + temp10.substring(2)
 
@@ -78,10 +76,8 @@ class GetBLE(private val context: Context) {
                                         val humB = OutputData.substring(10, 12)
                                         val humF = OutputData.substring(12, 14)
                                         val hum16 = humF + humB
-
                                         //16→10進数変換
                                         val hum10 = Integer.parseInt(hum16, 16).toShort().toString()
-
                                         //小数点ぶち込む(/100)
                                         val hum = hum10.substring(0, 2) + "." + hum10.substring(2)
 
@@ -90,7 +86,6 @@ class GetBLE(private val context: Context) {
                                         val lightB = OutputData.substring(14, 16)
                                         val lightF = OutputData.substring(16, 18)
                                         val light16 = lightF + lightB
-
                                         //16→10進数変換
                                         val light = Integer.parseInt(light16, 16).toShort().toString()
 
@@ -98,28 +93,25 @@ class GetBLE(private val context: Context) {
                                         val uvB = OutputData.substring(18, 20)
                                         val uvF = OutputData.substring(20, 22)
                                         val uv16 = uvF + uvB
-
                                         //16→10進数変換
                                         val uv = Integer.parseInt(uv16, 16).toShort().toString()
+
+
                                         // 気圧(22~25)
                                         val presB = OutputData.substring(22, 24)
                                         val presF = OutputData.substring(24, 26)
                                         val pres16 = presF + presB
-
-//16→10進数変換
-                                        val pres10 = Integer.parseInt(pres16, 16).toShort().toString()
-
+                                        //16→10進数変換
+                                        val pres10 = Integer.parseInt(pres16, 16).toShort().toInt()
                                         //小数点ぶち込む(/100)
-                                        val pres = pres10.substring(0, 3) + "." + pres10.substring(3)
+                                        val pres : String = (pres10 / 10).toString()
 
                                         // 騒音(26~29)
                                         val noiseB = OutputData.substring(26, 28)
                                         val noiseF = OutputData.substring(28, 30)
                                         val noise16 = noiseF + noiseB
-
                                         //16→10進数変換
                                         val noise10 = Integer.parseInt(noise16, 16).toShort().toString()
-
                                         //小数点ぶち込む(/100)
                                         val noise = noise10.substring(0, 2) + "." + noise10.substring(2)
 
@@ -128,10 +120,8 @@ class GetBLE(private val context: Context) {
                                         val discomfortB = OutputData.substring(30, 32)
                                         val discomfortF = OutputData.substring(32, 34)
                                         val discomfort16 = discomfortF + discomfortB
-
-//16→10進数変換
+                                        //16→10進数変換
                                         val discomfort10 = Integer.parseInt(discomfort16, 16).toShort().toString()
-
                                         //小数点ぶち込む(/100)
                                         val discomfort = discomfort10.substring(0, 2) + "." + discomfort10.substring(2)
 
@@ -140,16 +130,10 @@ class GetBLE(private val context: Context) {
                                         val wbgtB = OutputData.substring(34, 36)
                                         val wbgtF = OutputData.substring(36, 38)
                                         val wbgt16 = wbgtF + wbgtB
-
-//16→10進数変換
+                                        //16→10進数変換
                                         val wbgt10 = Integer.parseInt(wbgt16, 16).toShort().toString()
-
                                         //小数点ぶち込む(/100)
                                         val wbgt = wbgt10.substring(0, 2) + "." + wbgt10.substring(2)
-
-
-
-
 
 
                                         otherFileStorage.writeText("$temp,$hum,$light,$uv,$pres,$noise,$discomfort,$wbgt") //変換後のデータをcsvに書き込む
