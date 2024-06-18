@@ -33,6 +33,9 @@ class MainActivity : ComponentActivity() {
     private val scanInterval: Long = 60000 // 60sec　いい感じに変えてもいい
     private var isScanning: Boolean = false
 
+
+
+
     // ログメッセージの状態変数を追加
     private val logMessage = mutableStateOf("")
 
