@@ -28,7 +28,7 @@ class GetBLE(private val context: Context) {
     fun startScan() {
         val scanSetting = ScanSettings.SCAN_MODE_BALANCED
 
-        var otherFileStorage = OtherFileStorage(context = context)
+        val otherFileStorage = OtherFileStorage.getInstance(context)
 
 
         bluetoothLeScanner?.let { scanner ->
