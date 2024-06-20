@@ -23,6 +23,8 @@ import com.example.bletest.ui.theme.BLEtestTheme
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.mutableStateOf
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class MainActivity : ComponentActivity() {
     var getBLE = GetBLE(context = this)
@@ -32,8 +34,15 @@ class MainActivity : ComponentActivity() {
     private lateinit var scanRunnable: Runnable
     private val scanInterval: Long = 60000 // 60sec　いい感じに変えてもいい
     private var isScanning: Boolean = false
+    val NOTIFICATION_ID = 0
 
 
+    //互換を持たせるにはCHANNEL_IDを定義する
+    var builder = NotificationCompat.Builder(this)
+        .setSmallIcon(R.drawable._8860)
+        .setContentTitle("BLEtest2")
+        .setContentText("あなたの生活空間をセンシング中です")
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
 
     // ログメッセージの状態変数を追加
@@ -121,6 +130,18 @@ class MainActivity : ComponentActivity() {
                 // パーミッションが付与された場合はスキャンを開始
                 getBLE.startScan()
                 val logMessage = "Bluetooth permissions granted\n"
+                with(NotificationManagerCompat.from(this))
+                         {
+                    if (androidx.core.app.ActivityCompat.checkSelfPermission(
+                            this@MainActivity,
+                            android.Manifest.permission.POST_NOTIFICATIONS
+                        ) != android.content.pm.PackageManager.PERMISSION_GRANTED
+                    ) {
+                        return@with
+                    }
+                             notify(NOTIFICATION_ID, builder.build())
+                    }
+
             } else {
                 // パーミッションが拒否された場合の処理
                 Log.d("BLEtest", "Bluetooth permissions are required for this app to function properly.\n")
@@ -130,6 +151,9 @@ class MainActivity : ComponentActivity() {
 
 
 }
+
+
+
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier, logMessage: String) {

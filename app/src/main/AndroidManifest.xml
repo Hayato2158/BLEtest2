@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
     </application>
 
     <!-- Bluetooth パーミッション -->
@@ -40,6 +43,15 @@
     <uses-feature android:name="android.hardware.bluetooth_le" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--フォアグラウンド　パーミッション-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!--  通知  -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+
+
 
 
 </manifest>

@@ -141,6 +141,9 @@ class GetBLE(private val context: Context) {
                                 }
                             }
                         }
+
+                        //USB型の環境センサif文ここに書く
+
                     }
 
                     override fun onScanFailed(errorCode: Int) {
