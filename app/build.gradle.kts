@@ -73,4 +73,5 @@ dependencies {
     // For loading and tinting drawables on older versions of the platform
     implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
 
+    implementation("pub.devrel:easypermissions:3.0.0")
 }
