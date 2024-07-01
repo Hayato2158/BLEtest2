@@ -38,21 +38,6 @@ class OtherFileStorage private constructor(private val context: Context) {
         val addUnixTimeCsv = nowDate.plus(",").plus(text)
         pw.println(addUnixTimeCsv)
         pw.close()
-
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
-        Log.d("hoge","hogehoge")
     }
 
     companion object {
