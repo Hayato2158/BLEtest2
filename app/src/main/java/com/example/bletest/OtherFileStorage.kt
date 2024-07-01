@@ -3,6 +3,7 @@ package com.example.bletest
 import android.content.Context
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -37,6 +38,21 @@ class OtherFileStorage private constructor(private val context: Context) {
         val addUnixTimeCsv = nowDate.plus(",").plus(text)
         pw.println(addUnixTimeCsv)
         pw.close()
+
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
+        Log.d("hoge","hogehoge")
     }
 
     companion object {
